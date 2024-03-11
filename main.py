@@ -23,14 +23,14 @@ import re
 import os
 
 bot = Client("bot",
-             bot_token= "6320511438:AAHhA0AVfWPLAuKVnc7HGHzxpEmYZILh6rU",
-             api_id=25339665,
-             api_hash= "979cab179b80d3a826a27ab0c16dcc4a")
+             bot_token= "6782715381:AAHmURgZJjoeScU8ohUkepOKyd2DMBBSNA8",
+             api_id=26441402,
+             api_hash= "facbcdd5f6bf5802f13d470c10b0f473")
 
 
 @bot.on_message(filters.command(["start"]) & filters.user(ADMINS))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text(f"HELLO I AM TXT DOWNLOADER BOT MADE BY TIGER BOSS [{m.from_user.first_name}](tg://user?id={m.from_user.id})\nPress /BOSS")
+    editable = await m.reply_text(f"Hello I am Txt to Video Convertor Bot Developed By Ani [{m.from_user.first_name}](tg://user?id={m.from_user.id})\nPress /BOSS")
 
 
 @bot.on_message(filters.command("stop") & filters.user(ADMINS))
@@ -45,7 +45,7 @@ async def account_login(bot: Client, m: Message):
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()
-        await bot.send_document(-1002093362547, x)
+        await bot.send_document(-1002047319861, x)
         await input.delete(True)
         file_name, ext = os.path.splitext(os.path.basename(x))
         credit = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
@@ -175,7 +175,7 @@ async def account_login(bot: Client, m: Message):
                     try:
                         ka = await helper.download(url, name)
                         copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
-                        await copy.copy(chat_id = -1002093362547)
+                        await copy.copy(chat_id = -1002047319861)
                         count+=1
                         os.remove(ka)
                         time.sleep(1)
@@ -189,7 +189,7 @@ async def account_login(bot: Client, m: Message):
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
                         copy = await bot.send_document(chat_id=m.chat.id,document=f'{name}.pdf', caption=cc1)
-                        await copy.copy(chat_id = -1002093362547)
+                        await copy.copy(chat_id = -1002047319861)
                         count += 1
                         os.remove(f'{name}.pdf')
                     except FloodWait as e:
@@ -197,7 +197,7 @@ async def account_login(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 else:
-                    prog = await m.reply_text(f"**Downloading:-**\n\n** Video Name :-** `{name}\nQuality - {raw_text2}`\n**link:**`{url}`\n\n **bot made by TIGER ❤️**")
+                    prog = await m.reply_text(f"**Downloading:-**\n\n** Video Name :-** `{name}\nQuality - {raw_text2}`\n**link:**`{url}`\n\n **Bot Made Yy Ani**")
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
                     await prog.delete(True)
